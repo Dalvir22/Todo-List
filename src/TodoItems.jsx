@@ -8,6 +8,7 @@ const TodoItems = ({ data, deleteTodo, updateTodo, doneTodo,index }) => {
   const [startupdate, setStartupdate] = useState(false)
   const [inputvalue, setInputvalue] = useState(data.title)
   return (
+     
     <div style={{
       backgroundColor: data.status == "done" ? "lightgreen" : "red",
       width: "90%",
@@ -31,19 +32,19 @@ const TodoItems = ({ data, deleteTodo, updateTodo, doneTodo,index }) => {
               {
                 !startupdate ?
                   <div>
-                    <button style={{ backgroundColor: "green", borderRadius: "100%", padding: "0px 0px" }} onClick={() => doneTodo(data.id)}><IoCheckmarkDoneCircleOutline size={25} color='white' /></button>
-                    <button style={{ backgroundColor: "blue", borderRadius: "100%", padding: "0px 0px" }} onClick={() => setStartupdate(true)}><HiOutlinePencilSquare size={25} color='white' /></button>
+                    <button style={{ backgroundColor: "white", padding: "0px 0px" }} onClick={() => doneTodo(data.id)}><IoCheckmarkDoneCircleOutline size={25} color='green' /></button>
+                    <button style={{ backgroundColor: "white", padding: "0px 0px" }} onClick={() => setStartupdate(true)}><HiOutlinePencilSquare size={25} color='blue' /></button>
                   </div>
                   :
-                  <button style={{ backgroundColor: "blue", color: "white", borderRadius: "5px" }} onClick={() => {
+                  <button style={{ backgroundColor: "white", color: "black",height:"32px" }} onClick={() => {
                     updateTodo(data.id, inputvalue)
                     setStartupdate(false)
                   }
-                  }>save</button>
+                  }>save </button>
               }
             </div>
             :
-            <button style={{ backgroundColor: "red", borderRadius: "100%", padding: "0px 0px" }} onClick={() => deleteTodo(data.id)}><MdDelete size={25} /></button>
+            <button style={{ backgroundColor: "white", padding: "0px 0px" }} onClick={() => deleteTodo(data.id)}><MdDelete size={25} color='red' /></button>
         }
       </div>
     </div>
